@@ -19,7 +19,6 @@ const calcularAreaTriangulo = (base, altura) => {
 console.log(`El área de un triangulo de altura ${altura} y base ${base} es: ${calcularAreaTriangulo(base,altura)}`);
 */
 //Version 3
-
 let altura = 5,
     base = 7;
 const calcularAreaTriangulo = (base, altura) => base * altura / 2;
