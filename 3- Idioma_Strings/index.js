@@ -1,4 +1,3 @@
-
 /**
  * El siguiente programa transforma una palabra con base en 4 reglas:
  *  1- Si la palabra termina en "ar", se le quitan esos dos caracteres
