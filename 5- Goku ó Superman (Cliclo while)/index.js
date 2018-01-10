@@ -14,7 +14,7 @@ const calcularGolpe = () => (Math.random() * (PODER_MAXIMO - PODER_MINIMO)) + PO
 /*Ejecucion*/
 let round = 0;
 while (enCombate(Goku, Superman)) {
-    round++;
+    console.log(`Round: ${++round}`);
     const golpeGoku = calcularGolpe();
     const golpeSuperman = calcularGolpe();
     if (golpeGoku > golpeSuperman) {
