@@ -11,49 +11,56 @@
             Hola Platzi
         </h1>
         <script>
-            const agenda=document.getElementById('agenda');
-            const ITINERARIO = [{
-                "tarea": "Estoy Despertando...",
-                "tiempo": 3000,
-                "error": "Estoy enfermo :("
-            }, {
-                "tarea": "Estoy duchandome...",
-                "tiempo": 2000,
-                "error": "No hay agua :("
-            }, {
-                "tarea": "Estoy Vistiendome...",
-                "tiempo": 2000,
-                "error": "No he lavado :("
-            }, {
-                "tarea": "Estoy Desayunando...",
-                "tiempo": 3000,
-                "error": "No hay comida :("
-            }, {
-                "tarea": "Estoy Estudiando...",
-                "tiempo": 5000,
-                "error": "Tengo flogera :("
-            }];
-
-            const ACCIONES = elemento => {
-             new Promise((exito, fallo) => {
-                    setTimeout(() => {
-                        try {
-                            exito(elemento);
-                        } catch (e) {
-                            fallo(elemento);
-                        }
-                    }, elemento[0]["tiempo"]);
-                }).then(elemento => {
-                    agenda.textContent = elemento[0]["tarea"];
-                    elemento.shift();
-                    if(elemento.length){
-                        return ACCIONES(elemento);
-                    }
-                }).catch(elemento => {
-                    agenda.textContent = elemento[0]["error"];
-                });
-            };
-            ACCIONES(ITINERARIO);
+            const agenda = document.getElementById('agenda');
+			const ITINERARIO = [{
+			    "tarea": "Estoy Despertando...",
+			    "tiempo": 3000,
+			    "error": "Estoy enfermo :("
+			}, {
+			    "tarea": "Estoy duchandome...",
+			    "tiempo": 2000,
+			    "error": "No hay agua :("
+			}, {
+			    "tarea": "Estoy Vistiendome...",
+			    "tiempo": 2000,
+			    "error": "No he lavado :("
+			}, {
+			    "tarea": "Estoy Desayunando...",
+			    "tiempo": 3000,
+			    "error": "No hay comida :("
+			}, {
+			    "tarea": "Estoy Estudiando...",
+			    "tiempo": 5000,
+			    "error": "Tengo flogera :("
+			}];
+			const ACCIONES = (elemento, seguir) => {
+			    if (elemento.length && seguir) {
+			        new Promise((exito, fallo) => {
+			            setTimeout(() => {
+			                try {
+			                    if (Math.round(Math.random())) {
+			                        exito(elemento);
+			                    } else {
+			                        fallo(elemento);
+			                    }
+			                } catch (e) {
+			                    fallo(elemento);
+			                }
+			            }, elemento[0]["tiempo"]);
+			        }).then(elemento => {
+			            agenda.textContent = elemento[0]["tarea"];
+			            elemento.shift();
+			            return ACCIONES(elemento, 1);
+			        }).catch(elemento => {
+			            agenda.textContent = elemento[0]["error"];
+			            return ACCIONES(elemento, 0);
+			        });
+			    } else {
+			        agenda.textContent += "\r\n y al final termine :)";
+			        agenda["style"]["white-space"] = "pre"
+			    }
+			};
+			ACCIONES(ITINERARIO, 1);
         </script>
     </body>
 </html>
