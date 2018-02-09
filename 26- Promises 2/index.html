@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8"/>
+        <title>
+            Promises
+        </title>
+    </head>
+    <body>
+        <h1 id="agenda">
+            Hola Platzi
+        </h1>
+        <script>
+            const agenda=document.getElementById('agenda');
+            const ITINERARIO = [{
+                "tarea": "Estoy Despertando...",
+                "tiempo": 3000,
+                "error": "Estoy enfermo :("
+            }, {
+                "tarea": "Estoy duchandome...",
+                "tiempo": 2000,
+                "error": "No hay agua :("
+            }, {
+                "tarea": "Estoy Vistiendome...",
+                "tiempo": 2000,
+                "error": "No he lavado :("
+            }, {
+                "tarea": "Estoy Desayunando...",
+                "tiempo": 3000,
+                "error": "No hay comida :("
+            }, {
+                "tarea": "Estoy Estudiando...",
+                "tiempo": 5000,
+                "error": "Tengo flogera :("
+            }];
+
+            const ACCIONES = elemento => {
+             new Promise((exito, fallo) => {
+                    setTimeout(() => {
+                        try {
+                            exito(elemento);
+                        } catch (e) {
+                            fallo(elemento);
+                        }
+                    }, elemento[0]["tiempo"]);
+                }).then(elemento => {
+                    agenda.textContent = elemento[0]["tarea"];
+                    elemento.shift();
+                    if(elemento.length){
+                        return ACCIONES(elemento);
+                    }
+                }).catch(elemento => {
+                    agenda.textContent = elemento[0]["error"];
+                });
+            };
+            ACCIONES(ITINERARIO);
+        </script>
+    </body>
+</html>

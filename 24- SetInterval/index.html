@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8"/>
+        <title>
+            Document
+        </title>
+    </head>
+    <body>
+        <h1 id="timer">
+        </h1>
+        <script>
+            const timer=document.getElementById("timer");
+            let counter=0;
+            setInterval(()=>timer.textContent=`Han pasado ${++counter} segundo${(counter != 1) ? "s":""}.`,1000);
+        </script>
+    </body>
+</html>
