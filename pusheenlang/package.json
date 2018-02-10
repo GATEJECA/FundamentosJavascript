@@ -1,0 +1,10 @@
+{
+    "name": "pusheenlang",
+    "version": "0.1.0",
+    "description": "Traductor de idioma español a pusheenlang, escrito en javascript.",
+    "main": "index.js",
+    "scripts": {},
+    "keywords": ["pusheenlang", "idioma", "traductor", "javascript", "js"],
+    "author": "Carlos Garcia <carlos.e12@hotmail.com> (https://twitter.com/gatejeca)",
+    "license": "MIT"
+}
