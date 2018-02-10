@@ -20,11 +20,11 @@ npm install pusheenlang
 ```
 import pusheenlang from 'pusheenlang'
 
-pusheenlang('sometemos'); // SoMeTeMoS
-pusheenlang('Programar'); // Program
-pusheenlang('Zorro'); // Zorrope
-pusheenlang('Zarpar'); // Zarparpe
-pusheenlang('abecedario'); // abece-dario
+(new pusheenlang('sometemos')).traduccion; // SoMeTeMoS
+(new pusheenlang('Programar')).traduccion; // Program
+(new pusheenlang('Zorro')).traduccion; // Zorrope
+(new pusheenlang('Zarpar')).traduccion; // Zarparpe
+(new pusheenlang('abecedario')).traduccion; // abece-dario
 ```
 ## Creditos
 
