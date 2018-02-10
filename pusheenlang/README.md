@@ -30,5 +30,5 @@ import pusheenlang from 'pusheenlang'
 
 - [Carlos García](https://twitter.com/gatejeca)
 
-##Licencia
+## Licencia
 [MIT](https://opensource.org/licenses/MIT)
